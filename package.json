@@ -1,0 +1,14 @@
+{
+  "name": "logbook",
+  "version": "0.1.0",
+  "description": "Client-side conditional logger",
+  "main": "index.js",
+  "author": "Vadim Brodsky <vadim.brodsky@gmail.com>",
+  "license": "MIT",
+  "devDependencies": {
+    "@types/jest": "^24.0.6",
+    "jest": "^24.1.0",
+    "ts-jest": "^24.0.0",
+    "typescript": "^3.3.3"
+  }
+}
