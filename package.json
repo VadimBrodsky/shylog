@@ -1,10 +1,21 @@
 {
-  "name": "Spylog",
+  "name": "spylog",
   "version": "0.1.0",
   "description": "Tiny client-side conditional logger",
-  "main": "index.js",
+  "main": "build/index.js",
+  "types": "build/index.d.ts",
+  "files": ["build/**/*"],
   "author": "Vadim Brodsky <vadim.brodsky@gmail.com>",
   "license": "MIT",
+  "homepage": "https://github.com/VadimBrodsky/spylog",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/VadimBrodsky/spylog.git"
+  },
+  "keywords": ["logger", "console", "tiny", "conditional", "debug", "browser", "client"],
+  "bugs": {
+    "url": "https://github.com/VadimBrodsky/spylog/issues"
+  },
   "devDependencies": {
     "@types/jest": "^24.0.6",
     "jest": "^24.1.0",
@@ -12,12 +23,13 @@
     "typescript": "^3.3.3"
   },
   "scripts": {
-    "prestart": "yarn clean",
+    "prestart": "npm run clean",
     "start": "tsc -w",
-    "prebuild": "yarn clean",
+    "prebuild": "npm run clean",
     "build": "tsc",
     "clean": "rm -rf build/*",
     "test": "jest",
-    "test:watch": "jest --watchAll"
+    "test:watch": "jest --watchAll",
+    "prepublishOnly": "npm run test && npm run build"
   }
 }
