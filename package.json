@@ -1,7 +1,7 @@
 {
-  "name": "logbook",
+  "name": "Spylog",
   "version": "0.1.0",
-  "description": "Client-side conditional logger",
+  "description": "Tiny client-side conditional logger",
   "main": "index.js",
   "author": "Vadim Brodsky <vadim.brodsky@gmail.com>",
   "license": "MIT",
@@ -16,6 +16,8 @@
     "start": "tsc -w",
     "prebuild": "yarn clean",
     "build": "tsc",
-    "clean": "rm -rf build/*"
+    "clean": "rm -rf build/*",
+    "test": "jest",
+    "test:watch": "jest --watchAll"
   }
 }
