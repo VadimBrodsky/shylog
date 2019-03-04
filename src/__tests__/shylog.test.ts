@@ -27,7 +27,9 @@ describe('Shylog', () => {
       const logMessage = 'Can you see this?';
       logger.log(logMessage);
 
-      expect(consoleSpy).toHaveBeenCalledWith(logMessage);
+      expect(consoleSpy.mock.calls[0][0].msg).toEqual(logMessage);
+      expect(consoleSpy.mock.calls[0][0].msg).toEqual(logMessage);
+      expect(consoleSpy.mock.calls[0][0].time).toBeDefined();
     });
   });
 
