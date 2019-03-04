@@ -18,7 +18,7 @@ interface LogFn {
   level: Log['level'];
 }
 
-class Spylog {
+class Shylog {
   private emit: boolean;
   private buffer: Log[];
   private externalLogger: (...args: unknown[]) => unknown;
@@ -62,4 +62,4 @@ class Spylog {
   }
 }
 
-export default Spylog;
+export default Shylog;

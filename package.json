@@ -1,20 +1,20 @@
 {
-  "name": "spylog",
-  "version": "0.1.0",
+  "name": "shylog",
+  "version": "0.1.1",
   "description": "Tiny client-side conditional logger",
   "main": "build/index.js",
   "types": "build/index.d.ts",
   "files": ["build/**/*"],
   "author": "Vadim Brodsky <vadim.brodsky@gmail.com>",
   "license": "MIT",
-  "homepage": "https://github.com/VadimBrodsky/spylog",
+  "homepage": "https://github.com/VadimBrodsky/shylog",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/VadimBrodsky/spylog.git"
+    "url": "git+https://github.com/VadimBrodsky/shylog.git"
   },
   "keywords": ["logger", "console", "tiny", "conditional", "debug", "browser", "client"],
   "bugs": {
-    "url": "https://github.com/VadimBrodsky/spylog/issues"
+    "url": "https://github.com/VadimBrodsky/shylog/issues"
   },
   "devDependencies": {
     "@types/jest": "^24.0.6",
