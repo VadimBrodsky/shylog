@@ -51,8 +51,9 @@ class Shylog {
 
   public setLevel(level: Log['level'] | string): LogFn {
     const logFn: LogFn = (...args: unknown[]) => {
-      this.buffer.push({ level, time: Date.now(), msg: args.join(' ') });
-      this.emit && this.externalLogger(...args);
+      const message = { level, time: Date.now(), msg: args.join(' ') };
+      this.buffer.push(message);
+      this.emit && this.externalLogger(message);
     };
 
     logFn.level = level;
