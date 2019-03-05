@@ -1,11 +1,11 @@
-import Spylog from '../lib';
+import Shylog from '../lib';
 
-describe('Spylog', () => {
+describe('Shylog', () => {
   describe('constructor', () => {
     it('should not log anything if emit set to false', () => {
       const consoleSpy = jest.spyOn(console, 'log').mockImplementation(() => jest.fn());
 
-      const logger = new Spylog({
+      const logger = new Shylog({
         emit: false,
         logger: console.log
       });
@@ -19,7 +19,7 @@ describe('Spylog', () => {
     it('should accept an external logger', () => {
       const consoleSpy = jest.spyOn(console, 'log').mockImplementation(() => jest.fn());
 
-      const logger = new Spylog({
+      const logger = new Shylog({
         emit: true,
         logger: console.log
       });
@@ -27,13 +27,15 @@ describe('Spylog', () => {
       const logMessage = 'Can you see this?';
       logger.log(logMessage);
 
-      expect(consoleSpy).toHaveBeenCalledWith(logMessage);
+      expect(consoleSpy.mock.calls[0][0].msg).toEqual(logMessage);
+      expect(consoleSpy.mock.calls[0][0].msg).toEqual(logMessage);
+      expect(consoleSpy.mock.calls[0][0].time).toBeDefined();
     });
   });
 
   describe('.error', () => {
     it('should store the error message', () => {
-      const logger = new Spylog();
+      const logger = new Shylog();
 
       expect(logger.error).toBeDefined();
       logger.error('Abort', { failed: true });
@@ -45,7 +47,7 @@ describe('Spylog', () => {
 
   describe('.warn', () => {
     it('should store the warn message', () => {
-      const logger = new Spylog();
+      const logger = new Shylog();
 
       expect(logger.warn).toBeDefined();
       logger.warn('That', 'was', 'a', 'close', 'call');
@@ -57,7 +59,7 @@ describe('Spylog', () => {
 
   describe('.info', () => {
     it('should store the info message', () => {
-      const logger = new Spylog();
+      const logger = new Shylog();
 
       expect(logger.info).toBeDefined();
       logger.info('Back to normal');
@@ -69,7 +71,7 @@ describe('Spylog', () => {
 
   describe('.log', () => {
     it('should store the log message', () => {
-      const logger = new Spylog();
+      const logger = new Shylog();
 
       expect(logger.log).toBeDefined();
       logger.log('Something happened');
@@ -81,7 +83,7 @@ describe('Spylog', () => {
 
   describe('.setLevel', () => {
     it('should return a custom log level function', () => {
-      const logger = new Spylog();
+      const logger = new Shylog();
       const panic = logger.setLevel('panic');
 
       panic('FIRE! FIRE! FIRE!');
@@ -91,7 +93,7 @@ describe('Spylog', () => {
 
   describe('.getLogs', () => {
     it('should return all logged items when has no parameters', () => {
-      const logger = new Spylog();
+      const logger = new Shylog();
 
       logger.log('Something happened');
       logger.error('Abort', { failed: true });
@@ -102,7 +104,7 @@ describe('Spylog', () => {
     });
 
     it('should return all logged  items for a specified level number', () => {
-      const logger = new Spylog();
+      const logger = new Shylog();
 
       logger.error('first error');
       logger.error('second error');
@@ -114,7 +116,7 @@ describe('Spylog', () => {
     });
 
     it('should return all logged items for a specified log function', () => {
-      const logger = new Spylog();
+      const logger = new Shylog();
 
       logger.warn('warn 1st');
       logger.warn('warn 2nd');
