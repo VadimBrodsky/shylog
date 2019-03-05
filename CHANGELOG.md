@@ -11,9 +11,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Changelog, this file
 
 ### Changed
-- Rename tha package name to Shylog
+- Rename the package name to Shylog
 - Pass the whole message object to `externalLogger`
+- Update spec to match new implementation
 
 ## [0.1.0] - 2019-02-22
 ### Added
-- Initial release, adds the base implemenatiaon of Spylog
+- Initial release, adds the base implementation of Spylog
